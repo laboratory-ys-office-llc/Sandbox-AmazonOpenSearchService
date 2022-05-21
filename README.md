@@ -5,3 +5,7 @@
 
 ## APIGateway と Lambda でのアプリケーションインテグレーションテスト
 ![image](https://user-images.githubusercontent.com/31363256/169649573-0b269f41-0cb4-459f-ac0e-ac7f7647af8e.png)
+
+## 参考資料
+
+- https://docs.aws.amazon.com/ja_jp/opensearch-service/latest/developerguide/search-example.html
