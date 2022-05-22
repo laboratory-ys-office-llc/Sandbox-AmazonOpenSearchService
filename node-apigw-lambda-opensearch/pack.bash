@@ -1,5 +1,3 @@
-cd package
-zip -r ../lambda.zip .
+#! /bin/bash -x
 
-cd ..
-zip -g lambda.zip sample.py
+zip -r function.zip index.js node_modules/
