@@ -2,7 +2,7 @@ const { Client, Connection } = require("@opensearch-project/opensearch");
 const { defaultProvider } = require("@aws-sdk/credential-provider-node");
 const aws4 = require("aws4");
 
-var host = 'https://search-movies-ri7jydp6zkvzrlkxmzf2zlhsdm.ap-northeast-1.es.amazonaws.com/' // e.g. https://my-domain.region.es.amazonaws.com
+const host = 'https://search-movies-ri7jydp6zkvzrlkxmzf2zlhsdm.ap-northeast-1.es.amazonaws.com/' // e.g. https://my-domain.region.es.amazonaws.com
 
 const createAwsConnector = (credentials, region) => {
   class AmazonConnection extends Connection {
@@ -29,8 +29,7 @@ const getClient = async () => {
   });
 }
 
-async function search() {
-
+const addDoc = async () => {
   // Initialize the client.
   const client = await getClient();
 
@@ -60,7 +59,7 @@ async function search() {
 }
 
 exports.handler =  async function(event, context) {
-    const responseBody = await search().catch(console.log);
+    const responseBody = await addDoc().catch(console.log);
 
     const response = {
         "statusCode": 200,
