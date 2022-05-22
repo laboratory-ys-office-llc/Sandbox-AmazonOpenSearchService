@@ -32,41 +32,35 @@ const getClient = async () => {
 async function search() {
 
   // Initialize the client.
-  var client = await getClient();
+  const client = await getClient();
 
   // Create an index.
-  var index_name = "test-index";
+  const index_name = "test-index";
 
-  var response = await client.indices.create({
-      index: index_name,
-  });
+  // let response = await client.indices.create({
+  //     index: index_name,
+  // });
 
-  console.log("Creating index:");
-  console.log(response.body);
+  // console.log("Creating index:");
+  // console.log(response.body);
 
   // Add a document to the index.
-  var document = {
+  const document = {
       "title": "Moneyball",
       "director": "Bennett Miller",
       "year": "2011"
   };
 
-  var response = await client.index({
+  const response = await client.index({
       index: index_name,
       body: document
   });
 
-  console.log(response.body);
+  return response.body;
 }
 
 exports.handler =  async function(event, context) {
-    const responseBody = {
-        "key3": "value3",
-        "key2": "value2",
-        "key1": "value1"
-    };
-
-    await search().catch(console.log);
+    const responseBody = await search().catch(console.log);
 
     const response = {
         "statusCode": 200,
