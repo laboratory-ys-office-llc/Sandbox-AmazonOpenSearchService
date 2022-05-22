@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "zip -r function.zip index.js node_modules/",
+    "deploy": "aws lambda update-function-code --function-name opensearch-api-node --zip-file fileb://function.zip && rm function.zip"
   },
   "keywords": [],
   "author": "",
