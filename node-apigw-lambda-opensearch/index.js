@@ -34,10 +34,10 @@ const addDoc = async () => {
   const client = await getClient();
 
   // Create an index.
-  const index_name = "test-index";
+  const indexName = "test-index";
 
   // let response = await client.indices.create({
-  //     index: index_name,
+  //     index: indexName,
   // });
 
   // console.log("Creating index:");
@@ -51,7 +51,7 @@ const addDoc = async () => {
   };
 
   const response = await client.index({
-      index: index_name,
+      index: indexName,
       body: document
   });
 
